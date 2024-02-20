@@ -1,27 +1,20 @@
-# ワークフローの名前
-name: Golangci-lint ReviewDog 
+linters-settings:
+  goimports:
+    local-prefixes: github.com/NonokaM/WebDesignHub-API
 
-on:
-  pull_request:
+linters:
+  enable:
+    - gofmt
+    - goimports
+    - gocritic
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gosimple
+    - ineffassign
+    - typecheck
+    - whitespace
 
-# ジョブ定義
-jobs:
-  # lint
-  golangci-lint:
-    # GITHUB_TOKEN への権限設定
-    permissions:
-      checks: write
-      contents: read
-      pull-requests: write 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: reviewdog/action-golangci-lint@v2
-        with:
-          github_token: ${{ secrets.github_token }}
-          go_version: ^1.20
-          reporter: github-pr-review
-          level: warning
-          golangci_lint_flags: "--config=.golangci.yml"
-
-
+run:
+  timeout: 20m
