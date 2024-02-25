@@ -13,7 +13,7 @@ type ITodoUsecase interface {
 	DeleteTodo(userId uint, todoId uint) error
 }
 
-type todoUsecase struct { //これは依存性注入(DI)に使うはず。。。。
+type todoUsecase struct {
 	tr repository.ITodoRepository
 }
 

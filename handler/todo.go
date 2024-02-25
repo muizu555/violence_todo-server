@@ -8,10 +8,10 @@ import (
 
 type ITodoHandler interface {
 	Create(e echo.Context)
-	Update(c echo.Context)
-	Delete(c echo.Context)
-	Find(c echo.Context)
-	FindAll(c echo.Context)
+	Update(e echo.Context)
+	Delete(e echo.Context)
+	Find(e echo.Context)
+	FindAll(e echo.Context)
 }
 
 type todoHandler struct {
